@@ -4,17 +4,39 @@
   
     
     <entry>
-      <title><![CDATA[第一天，干点啥!]]></title>
-      <url>http://blog.inir.cn/2016/05/19/oneday/</url>
-      <content type="html"><![CDATA[<p>第一天，博客，总是要写点什么的吧。<br>不能第一天就对人家冷。这样不好，再加上我又不是这样的人。对吧，好人…</p>
-<h3 id="我需要做点事"><a href="#我需要做点事" class="headerlink" title="我需要做点事"></a>我需要做点事</h3><h4 id="啥事都可以，觉得充足，踏实，快乐就好。"><a href="#啥事都可以，觉得充足，踏实，快乐就好。" class="headerlink" title="啥事都可以，觉得充足，踏实，快乐就好。"></a>啥事都可以，觉得充足，踏实，快乐就好。</h4><p>首先写个Markdown的语法说明，今后写的md的时候好查阅，详情请查看<a href="http://blog.inir.cn/markdown">Markdown语法说明</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+      <title></title>
+      <url>http://blog.inir.cn/2016/08/22/git-ssh%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<h2 id="git-ssh配置和使用"><a href="#git-ssh配置和使用" class="headerlink" title="git-ssh配置和使用"></a>git-ssh配置和使用</h2><h3 id="1、设置Git的user-name和email：-如果是第一次的话"><a href="#1、设置Git的user-name和email：-如果是第一次的话" class="headerlink" title="1、设置Git的user name和email：(如果是第一次的话)"></a>1、设置Git的user name和email：(如果是第一次的话)</h3><p>$ <code>git config --global user.name &quot;humingx&quot;</code></p>
+<p>$ <code>git config --global user.email &quot;humingx@yeah.net&quot;</code></p>
+<h3 id="2、生成密钥"><a href="#2、生成密钥" class="headerlink" title="2、生成密钥"></a>2、生成密钥</h3><p>$ ssh-keygen -t rsa -C “humingx@yeah.net”</p>
+<p>连续3个回车。如果不需要密码的话。(第一个回车是id名，多个密钥时，需改成不同id)</p>
+<p>最后得到了两个文件：id_rsa和id_rsa.pub。</p>
+<h3 id="3、登陆Github-添加ssh-。"><a href="#3、登陆Github-添加ssh-。" class="headerlink" title="3、登陆Github, 添加ssh 。"></a>3、登陆Github, 添加ssh 。</h3><p>把id_rsa.pub文件里的内容复制到github设置的ssh-key当中。</p>
+<h3 id="4、测试："><a href="#4、测试：" class="headerlink" title="4、测试："></a>4、测试：</h3><p>$ <code>ssh -T git@github.com</code></p>
+<p>成功时：</p>
+<p><code>The authenticity of host &#39;github.com (207.97.227.239)&#39; can&#39;t be established.
+    RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+    Are you sure you want to continue connecting (yes/no)?</code></p>
+<p>选择 yes:</p>
+<p><code>Hi humingx! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
+<blockquote>
+<p>当<code>Permission denied (publickey).</code>或者<code>git pull origin master</code>操作时，报错：<br>Permission denied (publickey).<br>fatal: Could not read from remote repository.<br>意思是：权限被拒绝（公钥）。无法读取远程库。<br>此时需要配置ssh-agent:</p>
+</blockquote>
+<h3 id="5、添加密钥到ssh-agent"><a href="#5、添加密钥到ssh-agent" class="headerlink" title="5、添加密钥到ssh-agent"></a>5、添加密钥到ssh-agent</h3><p>确保 ssh-agent 是可用的。</p>
+<p>ssh-agent是一种控制用来保存公钥身份验证所使用的私钥的程序，其实ssh-agent就是一个密钥管理器，运行ssh-agent以后，使用ssh-add将私钥交给ssh-agent保管，其他程序需要身份验证的时候可以将验证申请交给ssh-agent来完成整个认证过程。</p>
+<p>$ <code>eval &quot;$(ssh-agent -s)&quot;</code></p>
+<blockquote>
+<p>Agent pid 59566</p>
+</blockquote>
+<p>添加生成的 SSH key 到 ssh-agent。</p>
+<p>$ <code>ssh-add ~/.ssh/id_rsa</code> #不同的密钥对应不同id</p>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[微品金融网站重构工作总结]]></title>
+      <url>http://blog.inir.cn/2016/06/06/%E5%BE%AE%E5%93%81%E9%87%91%E8%9E%8D%E7%BD%91%E7%AB%99%E9%87%8D%E6%9E%84%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/</url>
+      <content type="html"></content>
     </entry>
     
     <entry>
@@ -45,6 +67,20 @@
 <h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p>删除线的使用，只要用~~将需要删除的文本包围起来即可。</p>
 <p><del>Mistaken text.</del></p>
 <h3 id="代码块高亮"><a href="#代码块高亮" class="headerlink" title="代码块高亮"></a>代码块高亮</h3><p>使用\<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[第一天，干点啥!]]></title>
+      <url>http://blog.inir.cn/2016/05/19/oneday/</url>
+      <content type="html"><![CDATA[<p>第一天，博客，总是要写点什么的吧。<br>不能第一天就对人家冷。这样不好，再加上我又不是这样的人。对吧，好人…</p>
+<h3 id="我需要做点事"><a href="#我需要做点事" class="headerlink" title="我需要做点事"></a>我需要做点事</h3><h4 id="啥事都可以，觉得充足，踏实，快乐就好。"><a href="#啥事都可以，觉得充足，踏实，快乐就好。" class="headerlink" title="啥事都可以，觉得充足，踏实，快乐就好。"></a>啥事都可以，觉得充足，踏实，快乐就好。</h4><p>首先写个Markdown的语法说明，今后写的md的时候好查阅，详情请查看<a href="http://blog.inir.cn/markdown">Markdown语法说明</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
