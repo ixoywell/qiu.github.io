@@ -5,20 +5,26 @@
     
     <entry>
       <title><![CDATA[漂流大陆]]></title>
-      <url>http://blog.inir.cn/2016/11/29/story/</url>
+      <url>http://blog.inir.cn/2016/11/29/%E6%BC%82%E6%B5%81%E5%A4%A7%E9%99%86/</url>
       <content type="html"><![CDATA[<p>不知道从什么时候开始，我一直希望走遍所有的世界，对，不是只有现在所在的世界，还有很多很多的世界。<br>那些世界，应该很好玩，很惊险；那些世界，充满了各种各样的事物，那些你从来没见过的东西，每一件都让你觉得很惊奇，没看到之前，你永远都想象不出来；那些世界，有自己的自然规律，</p>
 ]]></content>
     </entry>
     
     <entry>
-      <title><![CDATA[goYunnan]]></title>
-      <url>http://blog.inir.cn/2016/08/25/goYunnan/</url>
+      <title><![CDATA[云南之旅]]></title>
+      <url>http://blog.inir.cn/2016/08/25/%E4%BA%91%E5%8D%97%E4%B9%8B%E6%97%85/</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://blog.inir.cn/2016/08/22/git-ssh%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
+      <title><![CDATA[微品金融网站重构工作总结]]></title>
+      <url>http://blog.inir.cn/2016/06/06/%E5%BE%AE%E5%93%81%E9%87%91%E8%9E%8D%E7%BD%91%E7%AB%99%E9%87%8D%E6%9E%84%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[GIT-SSH配置和使用]]></title>
+      <url>http://blog.inir.cn/2016/05/19/git-ssh%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<h2 id="git-ssh配置和使用"><a href="#git-ssh配置和使用" class="headerlink" title="git-ssh配置和使用"></a>git-ssh配置和使用</h2><h3 id="1、设置Git的user-name和email：-如果是第一次的话"><a href="#1、设置Git的user-name和email：-如果是第一次的话" class="headerlink" title="1、设置Git的user name和email：(如果是第一次的话)"></a>1、设置Git的user name和email：(如果是第一次的话)</h3><p>$ <code>git config --global user.name &quot;humingx&quot;</code></p>
 <p>$ <code>git config --global user.email &quot;humingx@yeah.net&quot;</code></p>
 <h3 id="2、生成密钥"><a href="#2、生成密钥" class="headerlink" title="2、生成密钥"></a>2、生成密钥</h3><p>$ ssh-keygen -t rsa -C “humingx@yeah.net”</p>
@@ -47,29 +53,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[微品金融网站重构工作总结]]></title>
-      <url>http://blog.inir.cn/2016/06/06/%E5%BE%AE%E5%93%81%E9%87%91%E8%9E%8D%E7%BD%91%E7%AB%99%E9%87%8D%E6%9E%84%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[第一天，干点啥!]]></title>
-      <url>http://blog.inir.cn/2016/05/19/index/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Markdown语法说明]]></title>
-      <url>http://blog.inir.cn/2016/05/19/makedown/</url>
+      <url>http://blog.inir.cn/2016/05/19/makedown%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E/</url>
       <content type="html"><![CDATA[<p>Markdown 是一种用来写作的轻量级「标记语言」，它用简洁的语法代替排版，而不像一般我们用的字处理软件 Word 或 Pages 有大量的排版、字体设置。它使我们专心于码字，用「标记」语法，来代替常见的排版格式。</p>
 <h2 id="Markdown语法说明"><a href="#Markdown语法说明" class="headerlink" title="Markdown语法说明"></a>Markdown语法说明</h2><h3 id="使用-Markdown-的优点"><a href="#使用-Markdown-的优点" class="headerlink" title="使用 Markdown 的优点"></a>使用 Markdown 的优点</h3><pre><code>1.专注你的文字内容而不是排版样式。
 2.轻松的导出 HTML、PDF 和本身的 .md 文件。
@@ -90,7 +75,7 @@
     
     <entry>
       <title><![CDATA[第一天，干点啥!]]></title>
-      <url>http://blog.inir.cn/2016/05/19/oneday/</url>
+      <url>http://blog.inir.cn/2016/05/19/sayHelloWorld/</url>
       <content type="html"><![CDATA[<p>第一天，博客，总是要写点什么的吧。<br>不能第一天就对人家冷。这样不好，再加上我又不是这样的人。对吧，好人…</p>
 <h3 id="我需要做点事"><a href="#我需要做点事" class="headerlink" title="我需要做点事"></a>我需要做点事</h3><h4 id="啥事都可以，觉得充足，踏实，快乐就好。"><a href="#啥事都可以，觉得充足，踏实，快乐就好。" class="headerlink" title="啥事都可以，觉得充足，踏实，快乐就好。"></a>啥事都可以，觉得充足，踏实，快乐就好。</h4><p>首先写个Markdown的语法说明，今后写的md的时候好查阅，详情请查看<a href="http://blog.inir.cn/markdown">Markdown语法说明</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
@@ -103,22 +88,8 @@
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://blog.inir.cn/2016/05/18/hello/</url>
-      <content type="html"><![CDATA[<p>title: hexo、github、多说、搭建免费博客<br>date: 2014-10-19 12:56:58<br>tags:</p>
-<ul>
-<li>tag1</li>
-<li>tag2</li>
-<li>tag3<br>categories:</li>
-<li>目录<br>__</li>
-</ul>
-<p>// 你的内容<br><a id="more"></a> // 以上为摘要</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>http://blog.inir.cn/2016/05/18/hello-world/</url>
+      <title><![CDATA[Hexo基本命令]]></title>
+      <url>http://blog.inir.cn/2016/05/18/Hexo%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
